@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Header(): React.ReactElement {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -33,26 +34,31 @@ export default function Header(): React.ReactElement {
           </div>
           
           <nav className="hidden md:flex items-center space-x-1">
-            {['Home', 'Services', 'About', 'Contact'].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+            {[
+              { name: 'Home', href: '/' },
+              { name: 'Services', href: '/services' },
+              { name: 'About', href: '/about' },
+              { name: 'Contact', href: '/contact' }
+            ].map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
                 className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 group ${
-                  scrolled 
-                    ? 'text-gray-700 hover:text-teal-600' 
+                  scrolled
+                    ? 'text-gray-700 hover:text-teal-600'
                     : 'text-gray-200 hover:text-white'
                 }`}
               >
-                <span className="relative z-10">{item}</span>
+                <span className="relative z-10">{item.name}</span>
                 <div className="absolute inset-0 bg-teal-500/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
-              </a>
+              </Link>
             ))}
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="ml-4 px-6 py-2 bg-gradient-to-r from-teal-600 to-cyan-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-teal-500/25 transition-all duration-300 hover:scale-105"
             >
               Get Quote
-            </a>
+            </Link>
           </nav>
 
           <button 
@@ -71,15 +77,20 @@ export default function Header(): React.ReactElement {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-xl border-t border-gray-100 rounded-b-2xl">
-              {['Home', 'Services', 'About', 'Contact'].map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+              {[
+                { name: 'Home', href: '/' },
+                { name: 'Services', href: '/#services' },
+                { name: 'About', href: '/about' },
+                { name: 'Contact', href: '/contact' }
+              ].map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
                   className="block px-4 py-3 text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition-all duration-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {item}
-                </a>
+                  {item.name}
+                </Link>
               ))}
             </div>
           </div>

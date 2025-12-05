@@ -1,34 +1,32 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Footer(): React.ReactElement {
   const currentYear = new Date().getFullYear();
 
   const services = [
-    { name: "Cloud Solutions", href: "#services" },
-    { name: "Cybersecurity", href: "#services" },
-    { name: "Digital Transformation", href: "#services" },
-    { name: "Data Analytics", href: "#services" },
-    { name: "Software Development", href: "#services" },
-    { name: "IT Support", href: "#services" }
+    { name: "Cloud Solutions", href: "/services" },
+    { name: "Cybersecurity", href: "/services" },
+    { name: "Digital Transformation", href: "/services" },
+    { name: "Data Analytics", href: "/services" },
+    { name: "Software Development", href: "/services" },
+    { name: "IT Support", href: "/services" }
   ];
 
   const company = [
-    { name: "About Us", href: "#about" },
-    { name: "Our Team", href: "#about" },
-    { name: "Careers", href: "#contact" },
-    { name: "Case Studies", href: "#services" },
-    { name: "Blog", href: "#contact" },
-    { name: "News", href: "#contact" }
+    { name: "About Us", href: "/about" },
+    { name: "Our Team", href: "/about" },
+    { name: "Careers", href: "/contact" },
+    { name: "Services", href: "/services" },
+    { name: "Contact", href: "/contact" }
   ];
 
   const support = [
-    { name: "Contact Support", href: "#contact" },
-    { name: "Documentation", href: "#contact" },
-    { name: "System Status", href: "#contact" },
-    { name: "Security", href: "#services" },
-    { name: "Privacy Policy", href: "#contact" },
-    { name: "Terms of Service", href: "#contact" }
+    { name: "Contact Support", href: "/contact" },
+    { name: "Help Center", href: "/contact" },
+    { name: "Privacy Policy", href: "/privacy" },
+    { name: "Terms of Service", href: "/terms" }
   ];
 
   return (
@@ -58,7 +56,7 @@ export default function Footer(): React.ReactElement {
               </div>
               
               <p className="text-gray-300 mb-6 leading-relaxed max-w-md">
-                Empowering businesses with cutting-edge IT solutions since 2014. 
+                Empowering businesses with cutting-edge IT solutions since 2013. 
                 We transform challenges into opportunities through innovative technology 
                 and expert consultation.
               </p>
@@ -105,10 +103,10 @@ export default function Footer(): React.ReactElement {
               <ul className="space-y-3">
                 {services.map((service, index) => (
                   <li key={index}>
-                    <a href={service.href} className="text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center group">
+                    <Link href={service.href} className="text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center group">
                       <span className="w-1 h-1 bg-teal-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                       {service.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -120,10 +118,10 @@ export default function Footer(): React.ReactElement {
               <ul className="space-y-3">
                 {company.map((item, index) => (
                   <li key={index}>
-                    <a href={item.href} className="text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center group">
+                    <Link href={item.href} className="text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center group">
                       <span className="w-1 h-1 bg-teal-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                       {item.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -135,10 +133,10 @@ export default function Footer(): React.ReactElement {
               <ul className="space-y-3">
                 {support.map((item, index) => (
                   <li key={index}>
-                    <a href={item.href} className="text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center group">
+                    <Link href={item.href} className="text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center group">
                       <span className="w-1 h-1 bg-teal-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                       {item.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -176,9 +174,9 @@ export default function Footer(): React.ReactElement {
                 <p>&copy; {currentYear} Excotron Solutions. All rights reserved.</p>
               </div>
               <div className="flex items-center space-x-6 text-sm text-gray-400">
-                <a href="#" className="hover:text-teal-400 transition-colors">Privacy Policy</a>
-                <a href="#" className="hover:text-teal-400 transition-colors">Terms of Service</a>
-                <a href="#" className="hover:text-teal-400 transition-colors">Cookie Policy</a>
+                <Link href="/privacy" className="hover:text-teal-400 transition-colors">Privacy Policy</Link>
+                <Link href="/terms" className="hover:text-teal-400 transition-colors">Terms of Service</Link>
+                <Link href="/contact" className="hover:text-teal-400 transition-colors">Contact</Link>
               </div>
             </div>
           </div>
