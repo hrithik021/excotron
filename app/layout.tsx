@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   description: 'Transform your business with enterprise-grade IT solutions. Cloud migration, cybersecurity, digital transformation, and 24/7 support.',
   keywords: 'IT consultancy, cloud solutions, cybersecurity, digital transformation, software development',
   authors: [{ name: 'Excotron Solutions' }],
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
 }
 
 export const viewport: Viewport = {
