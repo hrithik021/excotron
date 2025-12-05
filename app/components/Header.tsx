@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Header(): React.ReactElement {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -20,19 +21,15 @@ export default function Header(): React.ReactElement {
         : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          <div className="flex items-center group">
-            <div className="relative">
-              <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-300"></div>
-              <h1 className={`relative text-2xl font-bold transition-colors duration-300 ${
-                scrolled ? 'text-gray-900' : 'text-white'
-              }`}>
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Excotron
-                </span>
-                <span className={scrolled ? 'text-gray-700' : 'text-gray-200'}> Solutions</span>
-              </h1>
-            </div>
+        <div className="flex justify-between items-center py-1 sm:py-2">
+          <div className="flex items-center">
+            <Image
+              src="/WhatsApp_Image_2025-12-05_at_20.02.19-removebg-preview.png"
+              alt="Excotron Solutions"
+              width={160}
+              height={80}
+              className="h-16 w-auto"
+            />
           </div>
           
           <nav className="hidden md:flex items-center space-x-1">
@@ -42,17 +39,17 @@ export default function Header(): React.ReactElement {
                 href={`#${item.toLowerCase()}`}
                 className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 group ${
                   scrolled 
-                    ? 'text-gray-700 hover:text-blue-600' 
+                    ? 'text-gray-700 hover:text-teal-600' 
                     : 'text-gray-200 hover:text-white'
                 }`}
               >
                 <span className="relative z-10">{item}</span>
-                <div className="absolute inset-0 bg-blue-500/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                <div className="absolute inset-0 bg-teal-500/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
               </a>
             ))}
             <a
               href="#contact"
-              className="ml-4 px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105"
+              className="ml-4 px-6 py-2 bg-gradient-to-r from-teal-600 to-cyan-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-teal-500/25 transition-all duration-300 hover:scale-105"
             >
               Get Quote
             </a>
@@ -78,7 +75,7 @@ export default function Header(): React.ReactElement {
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300"
+                  className="block px-4 py-3 text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition-all duration-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item}
