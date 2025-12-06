@@ -24,13 +24,15 @@ export default function Header(): React.ReactElement {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-1 sm:py-2">
           <div className="flex items-center">
-            <Image
-              src="/WhatsApp_Image_2025-12-05_at_20.02.19-removebg-preview.png"
-              alt="Excotron Solutions"
-              width={160}
-              height={80}
-              className="h-16 w-auto"
-            />
+            <a href="#home" className="cursor-pointer">
+              <Image
+                src="/WhatsApp_Image_2025-12-05_at_20.02.19-removebg-preview.png"
+                alt="Excotron Solutions"
+                width={160}
+                height={80}
+                className="h-16 w-auto hover:scale-105 transition-transform duration-300"
+              />
+            </a>
           </div>
           
           <nav className="hidden md:flex items-center space-x-1">

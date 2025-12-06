@@ -45,13 +45,15 @@ export default function Footer(): React.ReactElement {
             {/* Company Info */}
             <div className="sm:col-span-2 lg:col-span-2">
               <div className="mb-6">
-                <Image
-                  src="/WhatsApp_Image_2025-12-05_at_20.02.19-removebg-preview.png"
-                  alt="Excotron Solutions"
-                  width={200}
-                  height={100}
-                  className="h-20 w-auto mb-4"
-                />
+                <a href="#home" className="cursor-pointer">
+                  <Image
+                    src="/WhatsApp_Image_2025-12-05_at_20.02.19-removebg-preview.png"
+                    alt="Excotron Solutions"
+                    width={200}
+                    height={100}
+                    className="h-20 w-auto mb-4 hover:scale-105 transition-transform duration-300"
+                  />
+                </a>
                 <div className="w-20 h-1 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full"></div>
               </div>
               
@@ -68,7 +70,13 @@ export default function Footer(): React.ReactElement {
                     <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                   </svg>
-                  <span>Hr@excotronsolution.com</span>
+                  <span>Hr@excotronsolution.com </span>
+                </div>
+                <div className="flex items-center text-gray-300">
+                  <svg className="w-5 h-5 mr-3 text-teal-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                  </svg>
+                  <span>+91 9611595306</span>
                 </div>
                 <div className="flex items-center text-gray-300">
                   <svg className="w-5 h-5 mr-3 text-teal-400" fill="currentColor" viewBox="0 0 20 20">

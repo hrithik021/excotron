@@ -89,8 +89,8 @@ export default function Contact(): React.ReactElement {
         </svg>
       ),
       title: "Call Us",
-      details: "Available Soon",
-      subtitle: "Phone number will be provided"
+      details: "+91 9611595306",
+      subtitle: ""
     },
     {
       icon: (
