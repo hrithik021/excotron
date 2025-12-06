@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EmailJS Test</title>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    button {
+      background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .message {
+      padding: 12px;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+    .success {
+      background: #d1fae5;
+      color: #065f46;
+    }
+    .error {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+  </style>
+</head>
+<body>
+  <h1>EmailJS Test Form</h1>
+  <p>This is a standalone test to verify EmailJS configuration.</p>
+
+  <div id="result"></div>
+
+  <form id="contact-form">
+    <div class="form-group">
+      <label>Name:</label>
+      <input type="text" name="from_name" required>
+    </div>
+
+    <div class="form-group">
+      <label>Email:</label>
+      <input type="email" name="from_email" required>
+    </div>
+
+    <div class="form-group">
+      <label>Company:</label>
+      <input type="text" name="company">
+    </div>
+
+    <div class="form-group">
+      <label>Phone:</label>
+      <input type="tel" name="phone">
+    </div>
+
+    <div class="form-group">
+      <label>Service:</label>
+      <select name="service" required>
+        <option value="">Select a service</option>
+        <option value="Cloud Solutions">Cloud Solutions</option>
+        <option value="Cybersecurity">Cybersecurity</option>
+        <option value="Digital Transformation">Digital Transformation</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Message:</label>
+      <textarea name="message" rows="5" required></textarea>
+    </div>
+
+    <button type="submit" id="submit-btn">Send Test Email</button>
+  </form>
+
+  <script type="text/javascript">
+    // Initialize EmailJS
+    (function() {
+      emailjs.init('83VIaEljnuOvUIIuW'); // Your public key
+    })();
+
+    // Handle form submission
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const submitBtn = document.getElementById('submit-btn');
+      const resultDiv = document.getElementById('result');
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      resultDiv.innerHTML = '';
+
+      const formData = new FormData(event.target);
+      const templateParams = {
+        from_name: formData.get('from_name'),
+        from_email: formData.get('from_email'),
+        company: formData.get('company') || 'Not provided',
+        phone: formData.get('phone') || 'Not provided',
+        service: formData.get('service'),
+        message: formData.get('message'),
+        to_email: 'Hr@excotronsolution.com'
+      };
+
+      console.log('Sending with params:', templateParams);
+
+      emailjs.send('service_r68d8cq', 'template_jyq6j9n', templateParams)
+        .then(function(response) {
+          console.log('SUCCESS!', response.status, response.text);
+          resultDiv.innerHTML = '<div class="message success">✅ Email sent successfully! Check Hr@excotronsolution.com</div>';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Test Email';
+          event.target.reset();
+        }, function(error) {
+          console.error('FAILED...', error);
+          resultDiv.innerHTML = '<div class="message error">❌ Error: ' + JSON.stringify(error) + '</div>';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Test Email';
+        });
+    });
+  </script>
+</body>
+</html>
